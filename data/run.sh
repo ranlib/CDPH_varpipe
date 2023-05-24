@@ -5,11 +5,15 @@
 FASTQ=$HOME/Analysis/wgs_pipeline/data/
 R1=$FASTQ/ERR552797_1.fastq.gz
 R2=$FASTQ/ERR552797_2.fastq.gz
+R1=$FASTQ/ERR552797_30percent_1.fq.gz
+R2=$FASTQ/ERR552797_30percent_2.fq.gz
 SAMPL=ERR552797
-REF=$VARPIPE/ref2.fa
+REF=../tools/ref2.fa
 
 #cp ../tools/config.yml  
-#Varpipeline -q $R1 -q2 $R2 -r $REF -n $SAMPL -o $SAMPL -a -v -t 8 --keepfiles
+../tools/Varpipeline -q $R1 -q2 $R2 -r $REF -n $SAMPL -o $SAMPL -a -v -t 8 --keepfiles
+
+exit
 
 #TOOLS=/NCHHSTP-DTBE-Varpipe-WGS/tools
 TOOLS=$HOME/Analysis/varpipe/tools
