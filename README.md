@@ -1,2 +1,4 @@
 # varpipe
-Analysis pipeline for whole genome sequencing data
+Analysis pipeline for whole genome sequencing data.
+
+Based on: https://github.com/CDCgov/NCHHSTP-DTBE-Varpipe-WGS
