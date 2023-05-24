@@ -107,7 +107,8 @@ class snp():
         self.__bedlist_amp                 = cfg['scripts']['bedlist_amp']
         self.__bedlist_one                 = cfg['scripts']['bedlist_one']
         self.__bedlist_two                 = cfg['scripts']['bedlist_two']
-        self.__bedstruct                   = cfg['scripts']['bedstruct']     
+        self.__bedstruct                   = cfg['scripts']['bedstruct']
+        self.__snpeff_database                   = cfg['scripts']['snpeff_database']     
         self.__target_estimator            = cfg['scripts']['target_coverage_estimator']
         self.__genome_coverage_estimator   = cfg['scripts']['genome_coverage_estimator']
         self.mutationloci                  = cfg['scripts']['mutationloci']
@@ -350,12 +351,12 @@ class snp():
         if self.__finalVCF:
            self.__ifVerbose("Annotating final VCF.")
            self.__CallCommand(['SnpEff', self.fOut + "/" + self.name +'_DR_loci_raw_annotation.txt'],
-                                ['java', '-Xmx4g', '-jar', self.__annotator, 'NC_000962', self.__finalVCF])
+                                ['snpEff', "-c", self.__snpeff_database,'NC_000962', self.__finalVCF])
            self.__annotation = self.fOut + "/" + self.name +'_DR_loci_raw_annotation.txt'
         if self.__fullVCF:
            self.__ifVerbose("Annotating full VCF.")
            self.__CallCommand(['SnpEff', self.fOut + "/" + self.name +'_full_raw_annotation.txt'],
-                                ['java', '-Xmx4g', '-jar', self.__annotator, 'NC_000962', self.__fullVCF])
+                                ['snpEff', '-c', self.__snpeff_database, 'NC_000962', self.__fullVCF])
            self.__full_annotation = self.fOut + "/" + self.name +'_full_raw_annotation.txt'
            self.__ifVerbose("Parsing final Annotation.")
            self.__CallCommand(['create annotation', self.fOut + "/" + self.name +'_DR_loci_annotation.txt'],

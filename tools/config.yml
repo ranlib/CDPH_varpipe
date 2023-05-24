@@ -22,7 +22,8 @@ scripts:
     bedlist_amp: /amp_bed.txt
     bedlist_one: /bed_1.txt
     bedlist_two: /bed_2.txt
-    bedstruct: /BED.txt      
+    bedstruct: /BED.txt
+    snpeff_database: /snpEff_database/snpEff.config
     target_coverage_estimator: /target_coverage_estimator.py
     genome_coverage_estimator: /genome_coverage_estimator.py
     mutationloci: /mutation_loci.txt
